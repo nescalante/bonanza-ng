@@ -1,0 +1,26 @@
+{
+  "name": "bonanza-ng",
+  "main": "dist/bonanza-ng.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/nescalante/bonanza-ng",
+  "authors": [
+    "Nicolas Escalante <nlante@gmail.com>"
+  ],
+  "description": "Angular autocomplete directive using bonanza",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "autocomplete",
+    "typeahead",
+    "angular",
+    "bonanza"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ]
+}

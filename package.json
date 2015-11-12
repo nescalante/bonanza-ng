@@ -1,0 +1,35 @@
+{
+  "name": "bonanza-ng",
+  "version": "0.0.1",
+  "description": "Angular autocomplete directive using bonanza",
+  "main": "src/bonanza.js",
+  "scripts": {
+    "build": "browserify src/bonanza.js -d -o dist/bonanza-ng.js; uglify -s dist/bonanza-ng.js -o dist/bonanza-ng.min.js; cp node_modules/bonanza/dist/bonanza.css dist/bonanza.css; cleancss dist/bonanza.css -o dist/bonanza.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nescalante/bonanza-ng"
+  },
+  "keywords": [
+    "autocomplete",
+    "typeahead",
+    "angular",
+    "bonanza"
+  ],
+  "author": "Nicolas Escalante <nlante@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nescalante/bonanza-ng/issues"
+  },
+  "homepage": "https://github.com/nescalante/bonanza-ng",
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "clean-css": "^3.3.8",
+    "jshint": "~2.6.0",
+    "jshint-stylish": "~1.0.0",
+    "uglify": "^0.1.5"
+  },
+  "dependencies": {
+    "bonanza": "^0.5.7"
+  }
+}
