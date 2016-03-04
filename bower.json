@@ -1,7 +1,6 @@
 {
   "name": "bonanza-ng",
   "main": "dist/bonanza-ng.js",
-  "version": "0.0.1",
   "homepage": "https://github.com/nescalante/bonanza-ng",
   "authors": [
     "Nicolas Escalante <nlante@gmail.com>"
