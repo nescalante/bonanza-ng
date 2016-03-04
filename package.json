@@ -1,6 +1,6 @@
 {
   "name": "bonanza-ng",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Angular autocomplete directive using bonanza",
   "main": "src/bonanza.js",
   "scripts": {
