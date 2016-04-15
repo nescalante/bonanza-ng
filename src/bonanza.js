@@ -12,8 +12,8 @@ angular.module('bonanza')
         bonanzaItemLabel: '&?',
         bonanzaLoadingLabel: '&?',
         bonanzaOnSelect: '&',
-        bonanzaRequest: '&'
-        bonanzaIsLoading: '=?',
+        bonanzaRequest: '&',
+        bonanzaIsLoading: '=?'
       },
       link: function (scope, element, attrs, ngModel) {
         var lastItemSelected;
@@ -74,9 +74,7 @@ angular.module('bonanza')
               ngModel.$setViewValue(item);
             }
 
-            if (onSelectFn) {
-              scope.bonanzaOnSelect({ $item: item });
-            }
+            scope.bonanzaOnSelect({ $item: item });
           });
 
           lastItemSelected = null;

@@ -4,9 +4,10 @@
   "description": "Angular autocomplete directive using bonanza",
   "main": "src/bonanza.js",
   "scripts": {
-    "build": "browserify src/bonanza.js -d -o dist/bonanza-ng.js; uglify -s dist/bonanza-ng.js -o dist/bonanza-ng.min.js; cp node_modules/bonanza/dist/bonanza.css dist/bonanza.css; cleancss dist/bonanza.css -o dist/bonanza.min.css",
+    "build": "npm test && browserify src/bonanza.js -d -o dist/bonanza-ng.js && uglify -s dist/bonanza-ng.js -o dist/bonanza-ng.min.js && cp node_modules/bonanza/dist/bonanza.css dist/bonanza.css && cleancss dist/bonanza.css -o dist/bonanza.min.css",
     "preversion": "npm run build && git commit --allow-empty -am 'pre-release commit'",
-    "postversion": "git push && git push --tags && npm publish"
+    "postversion": "git push && git push --tags && npm publish",
+    "test": "jshint src/bonanza.js"
   },
   "repository": {
     "type": "git",
