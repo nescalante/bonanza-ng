@@ -25,8 +25,8 @@ Use it over an input
    ng-model="owner"
    bonanza
    bonanza-request="getUsers($query)"
-   bonanza-value-template="firstName + ' ' + lastName"
-   bonanza-item-template="firstName + ' ' + lastName + ' (' + email + ')'"
+   bonanza-label="firstName + ' ' + lastName"
+   bonanza-item-label="firstName + ' ' + lastName + ' (' + email + ')'"
    bonanza-on-select="ownerChanges = ownerChanges + 1"
    bonanza-is-loading="loadingUsers">
 ```

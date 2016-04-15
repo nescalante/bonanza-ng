@@ -7,6 +7,14 @@ angular.module('bonanza')
     return {
       restrict: 'A',
       require: '?ngModel',
+      scope: {
+        bonanzaLabel: '&?',
+        bonanzaItemLabel: '&?',
+        bonanzaLoadingLabel: '&?',
+        bonanzaOnSelect: '&',
+        bonanzaRequest: '&'
+        bonanzaIsLoading: '=?',
+      },
       link: function (scope, element, attrs, ngModel) {
         var lastItemSelected;
 
@@ -17,21 +25,19 @@ angular.module('bonanza')
 
         var options = {};
 
-        if (attrs.bonanzaValueTemplate) {
-          options.templates.label = resolveTemplate(attrs.bonanzaValueTemplate);
+        if (attrs.bonanzaLabel) {
+          options.templates.label = scope.bonanzaLabel;
           options.templates.item = options.templates.label;
         }
 
-        if (attrs.bonanzaItemTemplate) {
-          options.templates.item = resolveTemplate(attrs.bonanzaItemTemplate);
+        if (attrs.bonanzaItemLabel) {
+          options.templates.item = scope.bonanzaItemLabel;
         }
 
-        if (attrs.bonanzaLoading) {
-          options.templates.loading = resolveTemplate(attrs.bonanzaLoading);
+        if (attrs.bonanzaLoadingLabel) {
+          options.templates.loading = scope.bonanzaLoadingLabel;
         }
 
-        var requestFn = $parse(attrs.bonanzaRequest);
-        var onSelectFn = attrs.bonanzaOnSelect && $parse(attrs.bonanzaOnSelect);
         var container = bonanza(element[0], options, doQuery);
 
         container.on('change', changeItem);
@@ -48,15 +54,13 @@ angular.module('bonanza')
           }
         });
 
-        if (attrs.bonanzaIsLoading) {
-          container.on('search', function () {
-            $parse(attrs.bonanzaIsLoading).assign(scope, true);
-          });
+        container.on('search', function () {
+          scope.bonanzaIsLoading = true;
+        });
 
-          container.on('success', function () {
-            $parse(attrs.bonanzaIsLoading).assign(scope, false);
-          });
-        }
+        container.on('success', function () {
+          scope.bonanzaIsLoading = false;
+        });
 
         if (ngModel) {
           scope.$watch(function () {
@@ -71,7 +75,7 @@ angular.module('bonanza')
             }
 
             if (onSelectFn) {
-              onSelectFn(scope, { $item: item });
+              scope.bonanzaOnSelect({ $item: item });
             }
           });
 
@@ -87,14 +91,8 @@ angular.module('bonanza')
           }
         }
 
-        function resolveTemplate(attr) {
-          return function (item) {
-            return $parse(attr)(scope, item);
-          };
-        }
-
         function doQuery(query, callback) {
-          var request = requestFn(scope, { $query: query });
+          var request = scope.bonanzaRequest({ $query: query });
 
           $q.when(request)
             .then(function (result) {
