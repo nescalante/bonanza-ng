@@ -26,13 +26,13 @@
   },
   "homepage": "https://github.com/nescalante/bonanza-ng",
   "devDependencies": {
-    "browserify": "^11.0.1",
-    "clean-css": "^3.3.8",
-    "jshint": "~2.6.0",
-    "jshint-stylish": "~1.0.0",
+    "browserify": "^14.1.0",
+    "clean-css": "^4.0.10",
+    "jshint": "~2.9.4",
+    "jshint-stylish": "~2.2.1",
     "uglify": "^0.1.5"
   },
   "dependencies": {
-    "bonanza": "^0.8.3"
+    "bonanza": "^1.0.1"
   }
 }
