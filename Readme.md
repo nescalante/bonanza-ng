@@ -1,5 +1,7 @@
 # Bonanza ng
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nescalante/bonanza-ng.svg)](https://greenkeeper.io/)
+
 > Angular autocomplete directive using [Bonanza](http://www.github.com/nescalante/bonanza)
 
 # Install
